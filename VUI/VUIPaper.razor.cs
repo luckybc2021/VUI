@@ -16,7 +16,7 @@ namespace VUI
         [Parameter, EditorRequired]
         public IReadOnlyList<TPiece>? Pieces { get; set; } = default;
 
-        private int pageNumber = 0;
+        private int pageNumber = 1;
         [Parameter]
         public int PageNumber
         {
@@ -24,8 +24,8 @@ namespace VUI
             set { pageNumber = value; }
         }
 
-        private int pieceNumber = -1;
-        private int _pieceNumber = -1;
+        private int pieceNumber = 0;
+        private int _pieceNumber = 0;
         [Parameter]
         public int PieceNumber
         {
@@ -33,8 +33,8 @@ namespace VUI
             set { _pieceNumber = value; }
         }
 
-        private int nextPieceNumber = -1;
-        private int _nextPieceNumber = -1;
+        private int nextPieceNumber = 1;
+        private int _nextPieceNumber = 1;
         [Parameter]
         public int NextPieceNumber
         {
