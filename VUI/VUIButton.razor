@@ -1,5 +1,32 @@
-﻿@inherits VUIElement
+﻿@inherits VUIPiece
 @{
     base.BuildRenderTree(__builder);
 }
 
+@* <div @onclick="InternalOnClicked"
+     @onmouseenter="InternalOnMouseEnter"
+     @onmouseleave="InternalOnMouseLeave"
+     @onmouseup="InternalOnMouseUp"
+     @onmousedown="InternalOnMouseDown"
+     style="background-color:@BackgroundColor;
+                    color:@Color;
+                    border:@Border;
+                    display:@Display;
+                    width:@Width;
+                    height:@Height;
+                    position:@Position;
+                    vertical-align:@VerticalAlign;
+                    cursor:@Cursor;
+                    justify-content:@JustifyContent;
+                    align-items:@AlignItems;
+                    margin:@Margin;
+                    z-index:@Z_Index;
+                    top:@Top;
+                    left:@Left;
+                    bottom:@Bottom;
+                    right:@Right;
+                    transform:@Transform;
+                    user-select:none;
+                    white-space:pre-wrap">
+    @ChildContent
+</div> *@

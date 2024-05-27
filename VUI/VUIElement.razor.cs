@@ -4,68 +4,68 @@ namespace VUI
 {
     public partial class VUIElement : ComponentBase, IUIElement
     {
+        //
+        //
+        //
+        private static int idCounting = 0;
+        private static string digitSeparator = "";
+
+
         string id = "";
         [Parameter]
         public string ID
         {
             get => id;
-            set
-            {
-                id = value;
-            }
+            set { id = value; }
         }
 
-
-        private static int mediaCounting = 0;
-        private static string digitSeparator = "";
-
-        string mediaID = "";
-        public string MediaID
+        protected string NewID()
         {
-            get
+            if (string.IsNullOrEmpty(id))
             {
-                if (string.IsNullOrEmpty(mediaID)) 
+                if (idCounting + 1 >= int.MaxValue)
                 {
-                    if (mediaCounting + 1 >= int.MaxValue) 
-                    {
-                        digitSeparator += "_";
-                        mediaCounting = 0;
-                    }
-
-                    mediaID = $"MediaID{digitSeparator}{mediaCounting++}";
+                    digitSeparator += "_";
+                    idCounting = 0;
                 }
 
-                return mediaID ;
-            }            
+                id = $"ID{digitSeparator}{idCounting++}";
+            }
+
+            return id;
         }
 
-        private string contentType = "Text";
+
+
+
+        //
+        //
+        //
+
+        private string contentType = "None";
         [Parameter]
-        public string ContentType
+        public string ContentType 
         {
-            get { return contentType; }
+            get => contentType; 
             set { contentType = value; }
         }
 
-
-        private string text = "";
-        [Parameter] public string Text 
-        { 
-            get => text; 
-            set { text = value; }
-        }
-
-        public void SetText(string value)
+        public void SetContentType(string value)
         {
-            Text = value;
+            ContentType = value;
         }
 
-        private string contentPath = string.Empty;
+        private string path = string.Empty;
         [Parameter]
-        public string ContentPath
+        public string Path
         {
-            get => contentPath;
-            set { contentPath = value; }
+            get => path;
+            set { path = value; }
+        }
+
+        public void SetPath(string value)
+        {
+            Path = value;
         }
 
 
@@ -82,6 +82,32 @@ namespace VUI
             BackgroundColor = value;
         }
 
+        private string backgroundImage = "unset";
+        [Parameter]
+        public string BackgroundImage
+        {
+            get => backgroundImage;
+            set { backgroundImage = value; }
+        }
+
+        public void SetBackgroundImage(string value)
+        {
+            BackgroundImage = value;
+        }
+
+        private string flexFlow = "unset";
+        [Parameter]
+        public string FlexFlow
+        {
+            get => flexFlow;
+            set { flexFlow = value; }
+        }
+
+        public void SetFlexDirection(string value)
+        {
+            FlexFlow = value;
+        }
+
         private string color = "unset";
         [Parameter]
         public string Color
@@ -94,6 +120,7 @@ namespace VUI
         {
             Color = value;
         }
+
 
         private string interactionState = "Normal";
 
@@ -179,12 +206,17 @@ namespace VUI
         }
 
 
-        private string transitionType = "InteractionState";
+        private string stateType = "InteractionState";
         [Parameter]
-        public string TransitionType
+        public string StateType
         {
-            get => transitionType;
-            set { transitionType = value; }
+            get => stateType;
+            set { stateType = value; }
+        }
+
+        public void SetTransitionType(string value)
+        {
+            StateType = value;
         }
 
 
@@ -201,6 +233,7 @@ namespace VUI
             SkipStates = _skipStates;
         }
 
+
         string cursor = "default";
         [Parameter]
         public string Cursor 
@@ -208,6 +241,12 @@ namespace VUI
             get => cursor; 
             set { cursor = value; }
         }
+
+        public void SetCursor(string value)
+        {
+            Cursor = value;
+        }
+
 
         string border = "none";
         [Parameter]
@@ -217,13 +256,25 @@ namespace VUI
             set { border = value; }
         }
 
-        string display = "inline-block";
+        public void SetBorder(string value)
+        {
+            Border = value;
+        }
+
+
+        string display = "unset";
         [Parameter]
         public string Display 
         { 
             get => display; 
             set { display = value; }
         }
+
+        public void SetDisplay(string value)
+        {
+            Display = value;
+        }
+
 
         public string width = "auto";
         [Parameter]
@@ -233,6 +284,12 @@ namespace VUI
             set { width = value; }
         }
 
+        public void SetWidth(string value)
+        {
+            Width = value;
+        }
+
+
         private string height = "auto";
         [Parameter]
         public string Height 
@@ -241,13 +298,25 @@ namespace VUI
             set { height = value; }
         }
 
-        string position = "relative";
+        public void SetHeight(string value)
+        {
+            Height = value;
+        }
+
+
+        string position = "unset";
         [Parameter]
         public string Position 
         { 
             get => position; 
             set { position = value; }
         }
+
+        public void SetPosition(string value)
+        {
+            Position = value;
+        }
+
 
         string verticalAlign = "top";
         [Parameter]
@@ -257,12 +326,115 @@ namespace VUI
             set { verticalAlign = value; }
         }
 
-        string horizontalAlign = "";
+        public void SetVerticalAlign(string value)
+        {
+            VerticalAlign = value;
+        }
+
+
+        string horizontalAlign = "unset";
         [Parameter]
         public string HorizontalAlign 
         { 
             get => horizontalAlign; 
             set { horizontalAlign = value; }
+        }
+
+        public void SetHorizontalAlign(string value)
+        {
+            HorizontalAlign = value;
+        }
+
+
+        string justifyContent = "unset";
+        [Parameter]
+        public string JustifyContent
+        {
+            get => justifyContent;
+            set { justifyContent = value; }
+        }
+
+        public void SetJustifyContent(string value)
+        {
+            JustifyContent = value;
+        }
+
+
+        string alignItems = "";
+        [Parameter]
+        public string AlignItems
+        {
+            get => alignItems;
+            set { alignItems = value; }
+        }
+
+        public void SetAlignItems(string value)
+        {
+            AlignItems = value;
+        }
+
+        private string margin = "unset";
+        [Parameter]
+        public string Margin
+        {
+            get => margin;
+            set { margin = value; }
+        }
+
+        private string z_index = "0";
+        [Parameter]
+        public string Z_Index
+        {
+            get => z_index;
+            set { z_index = value; }
+        }
+
+        private string top = "inherit";
+        [Parameter]
+        public string Top
+        {
+            get => top;
+            set { top = value; }
+        }
+
+        private string left = "inherit";
+        [Parameter]
+        public string Left
+        {
+            get => left;
+            set { left = value; }
+        }
+
+        private string bottom = "inherit";
+        [Parameter]
+        public string Bottom
+        {
+            get => bottom;
+            set { bottom = value; }
+        }
+
+        private string right = "inherit";
+        [Parameter]
+        public string Right
+        {
+            get => right;
+            set { right = value; }
+        }
+
+        private string transform = "none";
+        [Parameter]
+        public string Transform
+        {
+            get => transform;
+            set { transform = value; }
+        }
+
+        private string overFlow = "hidden";
+        [Parameter]
+        public string OverFlow
+        {
+            get => overFlow;
+            set { overFlow = value; }
         }
 
         double duration;
@@ -273,6 +445,12 @@ namespace VUI
             set { duration = value; }
         }
 
+        public void SetDuration(double value)
+        {
+            Duration = value;
+        }
+
+
         double currentTime;
         [Parameter]
         public double CurrentTime
@@ -280,6 +458,7 @@ namespace VUI
             get => currentTime;
             set { currentTime = value; }
         }
+
 
         double playbackRate;
         [Parameter]
@@ -290,14 +469,24 @@ namespace VUI
         }
 
 
-        protected override void OnInitialized()
+        protected override async Task OnInitializedAsync()
         {
-            base.OnInitialized();
-
+            ID = NewID();
             InteractionState = "Normal";
             BackgroundColor = normal_BackgroundColor;
             Color = normal_Color;
+
+            onAlign();
+            await base.OnInitializedAsync();
         }
+
+
+        //protected override void OnParametersSet()
+        //{
+        //    onAlign();
+        //    base.OnParametersSet();
+            
+        //}
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
@@ -311,19 +500,6 @@ namespace VUI
                 }
             }
         }
-
-
-        /// <summary>
-        /// Resets the media counter and digit separator. 
-        /// This function should be invoked prior to navigating to a page that 
-        /// contains a VUIElement with a media ContentType, such as 'Music' or 'Video'.
-        /// </summary>
-        public static void ResetMediaCounting()
-        {
-            mediaCounting = 0;
-            digitSeparator = "";
-        }
-
 
         internal virtual Task LoadDetails()
         {
@@ -341,8 +517,9 @@ namespace VUI
         }
 
 
-        public virtual Task SetCurrentTime(double _t)
+        public virtual Task SetCurrentTime(double value)
         {
+            CurrentTime = value;
             return Task.CompletedTask;
         }
 
@@ -351,8 +528,9 @@ namespace VUI
             return Task.FromResult(CurrentTime);
         }
 
-        public virtual Task SetPlaybackRate(double _t)
+        public virtual Task SetPlaybackRate(double value)
         {
+            PlaybackRate = value;
             return Task.CompletedTask;
         }
 

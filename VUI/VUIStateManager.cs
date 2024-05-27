@@ -12,7 +12,7 @@ namespace VUI
     {
         internal static void Handle(VUIElement e)
         {
-            switch (e.TransitionType)
+            switch (e.StateType)
             {
                 case "InteractionState":
 
@@ -177,7 +177,7 @@ namespace VUI
             int msDelayAfter,
             string[] skipStates)
         {
-            switch (e.TransitionType)
+            switch (e.StateType)
             {
                 case "UserDecision":
 
@@ -224,7 +224,7 @@ namespace VUI
             object _transitionValue,
             int msDelayAfter)
         {
-            switch (e.TransitionType)
+            switch (e.StateType)
             {
                 case "UserDecision":
 

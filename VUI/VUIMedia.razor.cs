@@ -5,12 +5,59 @@ namespace VUI
 {
     public partial class VUIMedia
     {
+        private static int mediaCounting = 0;
+        private static string digitSeparator = "";
+
+
+        string mediaID = "";
+        [Parameter]
+        public string MediaID
+        {
+            get => mediaID;
+            set { mediaID = value; }
+        }
+
+        protected string NewMediaID()
+        {
+            if (string.IsNullOrEmpty(mediaID))
+            {
+                if (mediaCounting + 1 >= int.MaxValue)
+                {
+                    digitSeparator += "_";
+                    mediaCounting = 0;
+                }
+
+                mediaID = $"MediaID{digitSeparator}{mediaCounting++}";
+            }
+
+            return mediaID;
+        }
+
+
+        public void SetMediaID(string value)
+        {
+            MediaID = value;
+        }
+
         protected override void OnInitialized()
         {
-            base.OnInitialized();
-
+            MediaID = NewMediaID();
             Transition = "None";
+
+            base.OnInitialized();
         }
+
+        /// <summary>
+        /// Resets the media counter and digit separator. 
+        /// This function should be invoked prior to navigating to a page that 
+        /// contains a VUIElement with a media ContentType, such as 'Music' or 'Video'.
+        /// </summary>
+        public static void ResetMediaCounting()
+        {
+            mediaCounting = 0;
+            digitSeparator = "";
+        }
+
 
         public override async Task Play()
         {

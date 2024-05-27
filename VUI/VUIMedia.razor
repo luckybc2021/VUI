@@ -2,9 +2,58 @@
 @inject IJSRuntime JSRuntime
 
 @inherits VUIElement
-@{
-    base.BuildRenderTree(__builder);
-}
+
+
+<div @onclick="InternalOnClicked"
+     @onmouseenter="InternalOnMouseEnter"
+     @onmouseleave="InternalOnMouseLeave"
+     @onmouseup="InternalOnMouseUp"
+     @onmousedown="InternalOnMouseDown"
+     style="background-color:@BackgroundColor;
+                    color:@Color;
+                    border:@Border;
+                    display:@Display;
+                    width:@Width;
+                    height:@Height;
+                    position:@Position;
+                    vertical-align:@VerticalAlign;
+                    cursor:@Cursor;
+                    justify-content:@JustifyContent;
+                    align-items:@AlignItems;
+                    margin:@Margin;
+                    z-index:@Z_Index;
+                    top:@Top
+                    left:@Left;
+                    bottom:@Bottom;
+                    right:@Right;
+                    transform:@Transform;
+                    user-select:none;">
+    
+    @switch (ContentType)
+    {
+        case "Image":
+
+            <img id="@MediaID" draggable="false" src="@Path" />
+            break;
+
+        case "Video":
+
+            <video id="@MediaID"
+                   disablePictureInPicture
+                   src="@Path"
+                   @onplay="InternalOnPlay"
+                   @onpause="InternalOnPause"
+                   @onended="InternalOnEnded"
+                   @ontimeupdate="InternalOnTimeUpdate"
+                   style="max-width: 100%; max-height: 100%;
+                          position: absolute;
+                          top: 50%; left: 50%; vertical-align: top;
+                          transform: translate(-50%, -50%);" />
+            break;
+    }
+</div>
+
+
 
 <script>
     window.playMedia = (MediaID) => {
