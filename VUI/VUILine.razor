@@ -1,0 +1,51 @@
+﻿@inherits VUIElement
+
+<div class="div-line" @onclick="InternalOnClicked"
+     @onmouseenter="InternalOnMouseEnter"
+     @onmouseleave="InternalOnMouseLeave"
+     @onmouseup="InternalOnMouseUp"
+     @onmousedown="InternalOnMouseDown"
+     style="background-color:@BackgroundColor;
+            background-image:@BackgroundImage;
+            color:@Color;
+            border:@Border;
+            display:@Display;
+            width:@Width;
+            height:@Height;
+            position:@Position;
+            vertical-align:@VerticalAlign;
+            cursor:@Cursor;
+            justify-content:@JustifyContent;
+            align-items:@AlignItems;
+            margin:@Margin;
+            z-index:@Z_Index;
+            top:@Top
+            left:@Left;
+            bottom:@Bottom;
+            right:@Right;
+            transform:@Transform;
+            flex-flow:@FlexFlow;
+            user-select:none;">
+    
+     <div class="div-inlet">
+        @ChildContent
+     </div>
+
+</div>
+
+
+<style>
+    /* .button-container {
+        display: inline-flex; // Use flexbox 
+        flex-flow: row;
+        width: max-content;
+    } */
+
+    .div-line div-inlet {
+            /* Add any button-specific styles here */
+            /* width:max-content; */
+            display: inline-block;
+            position: relative;
+            height: max-content;
+        }
+</style>

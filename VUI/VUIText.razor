@@ -1,0 +1,16 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+@inherits VUIPiece
+@{
+    base.BuildRenderTree(__builder);
+}
+
+<script>
+    // getInnerHtml.js
+    window.getInnerHtml = function (elementId) {
+        const element = document.getElementById(elementId);
+        return element ? element.textContent : '';
+    };
+
+</script>

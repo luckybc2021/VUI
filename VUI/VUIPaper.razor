@@ -1,0 +1,118 @@
+﻿@typeparam TPiece
+@inherits VUIElement
+
+<div @onclick="InternalOnClicked"
+     @onmouseenter="InternalOnMouseEnter"
+     @onmouseleave="InternalOnMouseLeave"
+     @onmouseup="InternalOnMouseUp"
+     @onmousedown="InternalOnMouseDown"
+     style="background-color:@BackgroundColor;
+            background-image:@BackgroundImage;
+            color:@Color;
+            border:@Border;
+            display:@Display;
+            width:@Width;
+            height:@Height;
+            position:@Position;
+            vertical-align:@VerticalAlign;
+            cursor:@Cursor;
+            justify-content:@JustifyContent;
+            align-items:@AlignItems;
+            margin:@Margin;
+            z-index:@Z_Index;
+            top:@Top
+            left:@Left;
+            bottom:@Bottom;
+            right:@Right;
+            transform:@Transform;
+            overflow:@OverFlow;
+            user-select:none;">
+
+    @if (Pieces == null) return;
+
+    @switch(view[0])
+    {
+        case "single":
+
+            if(CurrentPage != null &&
+               Pieces.Count > 0 && pieceNumber != -1)
+            {
+                @CurrentPage(Pieces[pieceNumber])
+            }
+
+            break;
+
+        case "dual":
+
+            if (Page1 != null &&
+                Pieces.Count >= 1 && pieceNumber != -1)
+            {
+                <div class="@view[1]">
+                    @Page1(Pieces[pieceNumber])
+                </div>
+            }
+
+            if (Page2 != null &&
+                Pieces.Count >= 2 && nextPieceNumber != -1)
+            {
+                <div class="@view[2]">
+                    @Page2(Pieces[pieceNumber])
+                </div>
+            }
+            
+            break;
+    }
+    
+</div>
+
+<style>
+    .horizontal-max
+    {
+        display: inline-block;
+        position:relative;
+        width: max-content;
+        Height: 100%;
+    }
+
+    .horizontal-normal {
+        display:inline-block; 
+        position:relative;
+        width: 100%;
+        Height: 100%;
+        flex:none;
+    }
+
+    .horizontal-fit {
+        display: inline-block;
+        position: relative;
+        Width: 50%;
+        Height: 100%;
+    }
+
+    .vertical-max
+    {
+        display: block;
+        position:relative;
+        Width: 100%;
+        Height: max-content;
+    }
+
+    .vertical-normal {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        Height: 100vh;
+    }
+
+    .vertical-fit {
+        display: block;
+        position: relative;
+        Width: 100%;
+        Height: 50%;
+    }
+
+    .appearance
+    {
+        background-color: @BackgroundColor;
+    }
+</style>
