@@ -19,7 +19,7 @@ namespace VUI
         /// <summary>
         /// <list type="bullet">
         /// <item>
-        /// <description>"Normal": The default state of the UI element.</description>
+        /// <description>"None": the UIElement contains nothing.</description>
         /// </item>
         /// <item>
         /// <description>"Text": the UIElement contains text content.</description>
@@ -44,7 +44,7 @@ namespace VUI
         /// such as music, video, images, etc.
         /// The value should be a valid file path pointing to the content file.
         /// </summary>
-        string ContentPath { get; set; }
+        string Path { get; set; }
 
 
         string MouseEnter_BackgroundColor { get; set; }
@@ -122,7 +122,7 @@ namespace VUI
         /// 
         /// </list>
         /// </summary>
-        string TransitionType { get; set; }
+        string StateType { get; set; }
 
 
         /// <summary>
