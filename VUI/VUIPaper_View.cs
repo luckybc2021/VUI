@@ -9,7 +9,7 @@ namespace VUI
 {
     public partial class VUIPaper<TPiece> : VUIElement
     {
-        private string[] view = { "single", "", "" };
+        private readonly string[] view = ["single", "", ""];
 
         private string _view = "single";
         [Parameter]
@@ -31,35 +31,35 @@ namespace VUI
             {
                 case 1:
                     
-                    _one(parts);
+                    One(parts);
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100%";
+                    Width = "100rw";
                     Height = "100vh";
                     break;
 
                 case 2:
 
-                    _one(parts);
-                    _two(parts);
+                    One(parts);
+                    Two(parts);
 
                     Display = "inline-block";
                     FlexFlow = "unset";
-                    Width = "100%";
+                    Width = "100rw";
                     Height = "100vh";
                     break;
 
                 case 3:
 
-                    _one(parts);
-                    _two(parts);
-                    _three(parts);
+                    One(parts);
+                    Two(parts);
+                    Three(parts);
                     break;
             }
         }
 
-        private void _one(string[] parts)
+        private void One(string[] parts)
         {
             switch (parts[0])
             {
@@ -82,14 +82,15 @@ namespace VUI
             }
         }
 
-        private void _two(string[] parts)
+        private void Two(string[] parts)
         {
             switch (parts[1])
             {
                 case "horizontal":
-
+                    
                     view[1] = "horizontal-fit";
                     view[2] = "horizontal-fit";
+
                     break;
 
                 default:
@@ -99,24 +100,24 @@ namespace VUI
             }
         }
 
-        private void _three(string[] parts)
+        private void Three(string[] parts)
         {
             switch (parts[1])
             {
                 case "horizontal":
 
-                    _horizontal(parts);
+                    Sides_Horizontal(parts);
 
                     break;
 
                 default:
 
-                    _vertical(parts);
+                    Sides_Vertical(parts);
                     break;
             }            
         }
 
-        private void _horizontal(string[] parts)
+        private void Sides_Horizontal(string[] parts)
         {
             switch (parts[2])
             {
@@ -149,13 +150,13 @@ namespace VUI
 
                     Display = "inline-block";
                     FlexFlow = "unset";
-                    Width = "100%";
+                    Width = "100rw";
                     Height = "100vh";
                     break;
             }
         }
 
-        private void _vertical(string[] parts)
+        private void Sides_Vertical(string[] parts)
         {
             switch (parts[2])
             {
@@ -166,7 +167,7 @@ namespace VUI
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100%";
+                    Width = "100rw";
                     Height = "max-content";
                     break;
 
@@ -187,7 +188,7 @@ namespace VUI
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100%";
+                    Width = "100rw";
                     Height = "100vh";
                     break;
             }

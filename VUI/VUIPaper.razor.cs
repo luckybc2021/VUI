@@ -12,6 +12,7 @@ namespace VUI
         [Parameter]
         public RenderFragment<TPiece>? Page2 { get; set; } = default;
 
+
         [Parameter, EditorRequired]
         public IReadOnlyList<TPiece>? Pieces { get; set; } = default;
 

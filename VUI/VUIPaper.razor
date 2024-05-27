@@ -30,6 +30,7 @@
 
     @if (Pieces == null) return;
 
+
     @switch(view[0])
     {
         case "single":
@@ -37,7 +38,9 @@
             if(CurrentPage != null &&
                Pieces.Count > 0 && pieceNumber != -1)
             {
-                @CurrentPage(Pieces[pieceNumber])
+                <VUISide Piece=Pieces[pieceNumber]>
+                    @CurrentPage(Pieces[pieceNumber])
+                </VUISide>
             }
 
             break;
@@ -47,17 +50,18 @@
             if (Page1 != null &&
                 Pieces.Count >= 1 && pieceNumber != -1)
             {
-                <div class="@view[1]">
+                <VUISide View=@view[1] Piece=Pieces[pieceNumber]>
                     @Page1(Pieces[pieceNumber])
-                </div>
+                </VUISide>
             }
+
 
             if (Page2 != null &&
                 Pieces.Count >= 2 && nextPieceNumber != -1)
             {
-                <div class="@view[2]">
+                <VUISide View=@view[2] Piece=Pieces[pieceNumber]>
                     @Page2(Pieces[pieceNumber])
-                </div>
+                </VUISide>
             }
             
             break;
