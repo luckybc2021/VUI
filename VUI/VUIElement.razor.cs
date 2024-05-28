@@ -481,12 +481,11 @@ namespace VUI
         }
 
 
-        //protected override void OnParametersSet()
-        //{
-        //    onAlign();
-        //    base.OnParametersSet();
-            
-        //}
+        protected override void OnParametersSet()
+        {
+            onAlign();
+            base.OnParametersSet();
+        }
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
