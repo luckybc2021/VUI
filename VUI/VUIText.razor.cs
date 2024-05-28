@@ -11,16 +11,10 @@ namespace VUI
     {
         private string content = "";
 
-        [Parameter]
+
         public string Content
         {
             get => content;
-            set { content = value; }
-        }
-
-        public void SetContent(string value)
-        {
-            Content = value;
         }
 
         protected override void OnInitialized()
@@ -42,9 +36,9 @@ namespace VUI
         private async Task<string> ExtractContent()
         {
             // Invoke the JavaScript function to get the inner HTML
-            Content = await JSRuntime.InvokeAsync<string>("getInnerHtml", [ID]);
+            content = await JSRuntime.InvokeAsync<string>("getInnerHtml", [ID]);
 
-            return Content;
+            return content;
         }
     }
 }
