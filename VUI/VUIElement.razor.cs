@@ -276,7 +276,7 @@ namespace VUI
         }
 
 
-        public string width = "auto";
+        public string width = "unset";
         [Parameter]
         public string Width 
         { 
@@ -290,7 +290,7 @@ namespace VUI
         }
 
 
-        private string height = "auto";
+        private string height = "unset";
         [Parameter]
         public string Height 
         { 
