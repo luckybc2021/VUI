@@ -19,11 +19,29 @@ namespace VUI
         /// <list type="bullet">
         /// <item><description>"Itself": Aligns the element relative to its own content.</description></item>
         /// <item><description>"Children": Aligns the element relative to its child elements.</description></item>
+        /// </list>
+        /// 
+        /// <list type="none">
+        /// <item>-----</item>
+        /// </list>        
+        /// 
+        /// <list type="bullet">
         /// <item><description>"top-left", "top-right", "bottom-left", "bottom-right": Aligns the element to the specified corner.</description></item>
         /// <item><description>"center": Aligns the element both vertically and horizontally.</description></item>
         /// <item><description>"left-center", "right-center": Aligns the element horizontally with respect to the container.</description></item>
         /// <item><description>"top-center", "bottom-center": Aligns the element horizontally and vertically.</description></item>
         /// </list>
+        /// 
+        /// <list type="none">
+        /// <item>******</item>
+        /// </list>
+        /// 
+        /// For example: "Itself top-left Children center"
+        /// 
+        /// <list type="none">
+        /// <item>******</item>
+        /// </list>
+        /// 
         /// </summary>
         [Parameter]
         public string Align
