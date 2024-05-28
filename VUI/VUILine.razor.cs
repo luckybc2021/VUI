@@ -21,9 +21,22 @@ namespace VUI
             
             Display = "inline-flex";
             FlexFlow = "row";
-            Width = "max-content";
-            
+
+            if (Width == "unset")
+            {
+                Width = "max-content";
+            }    
+
             base.OnInitialized();
+        }
+
+        protected override void OnParametersSet()
+        {
+            base.OnParametersSet();
+
+
+
+            StateHasChanged();
         }
     }
 }
