@@ -69,9 +69,9 @@ namespace VUI
 
         protected override void OnParametersSet()
         {
+
+
             base.OnParametersSet();
-
-
 
             StateHasChanged();
         }

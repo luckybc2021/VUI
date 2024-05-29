@@ -4,6 +4,18 @@
 
 @inherits VUIElement
 
+
+
+@*
+    The following properties are not available on VUIList,
+    instead it will for list-items.
+       1. Color (Invailable),
+       2. Normal_Color,
+       3. MouseEnter_Color,
+       4. MouseLeave_Color,
+       5. MouseDown_Color,
+       6. Clicked_Color.
+*@
 <div class="div-line" @onclick="InternalOnClicked"
      @onmouseenter="InternalOnMouseEnter"
      @onmouseleave="InternalOnMouseLeave"
@@ -11,7 +23,7 @@
      @onmousedown="InternalOnMouseDown"
      style="background-color:@BackgroundColor;
             background-image:@BackgroundImage;
-            color:@Color;
+            
             border:@Border;
             display:@Display;
             width:@Width;
