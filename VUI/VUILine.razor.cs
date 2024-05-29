@@ -2,13 +2,47 @@ using Microsoft.AspNetCore.Components;
 
 namespace VUI
 {
-    public partial class VUILine<TItem>
+    public partial class VUILine<TItem> : IVUIText
     {
         [Parameter]
         public RenderFragment? ChildContent { get; set; }
 
         [Parameter, EditorRequired]
         public IReadOnlyList<TItem> Items { get; set; } = default!;
+
+        private string fontFamily = "arial";
+        [Parameter]
+        public string FontFamily
+        {
+            get => fontFamily;
+            set
+            {
+                fontFamily = value;
+            }
+        }
+
+        private string fontSize = "unset";
+        [Parameter]
+        public string FontSize
+        {
+            get => fontSize;
+            set
+            {
+                fontSize = value;
+            }
+        }
+
+        private string fontWeight = "normal";
+        [Parameter]
+        public string FontWeight
+        {
+            get => fontWeight;
+            set
+            {
+                fontWeight = value;
+            }
+        }
+
 
         /// <summary>
         /// To create a line of UIElements:

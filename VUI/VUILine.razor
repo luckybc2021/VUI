@@ -39,16 +39,24 @@
 
     @foreach (var item in Items)
     {
-        <VUIText FlexFlow="row" Display="block" Position="relative"
+        <VUIText FlexFlow="row" 
+                 
+                 Display="inline-block" 
+                 Position="relative"
+                 Height="max-content"
+                 
                  Normal_Color=@Normal_Color
                  MouseEnter_Color=@MouseEnter_Color
                  MouseLeave_Color=@MouseLeave_Color
                  MouseDown_Color=@MouseDown_Color
                  MouseUp_Color=@MouseUp_Color
                  Clicked_Color=@Clicked_Color
+                 
                  FontFamily=@FontFamily
                  FontSize=@FontSize
-                 FontWeight=@FontWeight>
+                 FontWeight=@FontWeight
+                 
+                 Margin="0 5px">
             @item
         </VUIText>
     }
