@@ -7,7 +7,7 @@ using System.Text;
 
 namespace VUI
 {
-    public partial class VUIText
+    public partial class VUIText: IVUIText
     {
         private string content = "";
 
