@@ -22,7 +22,7 @@ namespace VUI
             }
         }
 
-        private string fontSize = "initial";
+        private string fontSize = "unset";
         [Parameter]
         public string FontSize
         {
@@ -48,7 +48,7 @@ namespace VUI
         protected override void OnInitialized()
         {
             ContentType = "List";
-            Display = "block";
+            Display = "inline-block";
             Position = "relative";
             
             base.OnInitialized();
