@@ -35,7 +35,7 @@ namespace VUI
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100rw";
+                    Width = "100vw";
                     Height = "100vh";
                     break;
 
@@ -46,11 +46,12 @@ namespace VUI
 
                     Display = "inline-block";
                     FlexFlow = "unset";
-                    Width = "100rw";
+                    Width = "100vw";
                     Height = "100vh";
                     break;
 
                 case 3:
+                case 5:
 
                     One(parts);
                     Two(parts);
@@ -121,6 +122,19 @@ namespace VUI
         {
             switch (parts[2])
             {
+                case "custom":
+                    view[1] = "horizontal-custom1";
+                    widthMaxContent1 = parts[3];
+
+                    view[2] = "horizontal-custom2";
+                    widthMaxContent2 = parts[4];
+
+                    Display = "inline-flex";
+                    FlexFlow = "row";
+                    Width = "100vw";
+                    Height = "100vh";
+                    break;
+
                 case "max":
 
                     view[1] = "horizontal-max";
@@ -150,7 +164,7 @@ namespace VUI
 
                     Display = "inline-block";
                     FlexFlow = "unset";
-                    Width = "100rw";
+                    Width = "100vw";
                     Height = "100vh";
                     break;
             }
@@ -160,6 +174,19 @@ namespace VUI
         {
             switch (parts[2])
             {
+                case "custom":
+                    view[1] = "vertical-custom1";
+                    widthMaxContent1 = parts[3];
+
+                    view[2] = "vertical-custom2";
+                    widthMaxContent2 = parts[4];
+
+                    Display = "inline-flex";
+                    FlexFlow = "row";
+                    Width = "100vw";
+                    Height = "100rh";
+                    break;
+
                 case "max":
 
                     view[1] = "vertical-max";
@@ -167,7 +194,7 @@ namespace VUI
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100rw";
+                    Width = "100vw";
                     Height = "max-content";
                     break;
 
@@ -188,7 +215,7 @@ namespace VUI
 
                     Display = "block";
                     FlexFlow = "unset";
-                    Width = "100rw";
+                    Width = "100vw";
                     Height = "100vh";
                     break;
             }

@@ -437,6 +437,16 @@ namespace VUI
             set { overFlow = value; }
         }
 
+        private string padding = "unset";
+        [Parameter]
+        public string Padding
+        {
+            get => padding;
+            set { padding = value; }
+        }
+
+
+
         double duration;
         [Parameter]
         public double Duration

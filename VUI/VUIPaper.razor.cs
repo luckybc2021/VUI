@@ -42,6 +42,12 @@ namespace VUI
             set { _nextPieceNumber = value; }
         }
 
+        private string widthMaxContent1 = "unset";
+        private string widthMaxContent2 = "unset";
+
+        private string heightMaxContent1 = "unset";
+        private string heightMaxContent2 = "unset";
+
         protected override void OnInitialized()
         {
             CurrentPage = Page1;

@@ -56,7 +56,7 @@ namespace VUI
 
         protected override void OnInitialized()
         {
-            ContentType = "Text";            
+            ContentType = "Text";
             base.OnInitialized();
         }
 

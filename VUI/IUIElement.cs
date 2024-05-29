@@ -139,7 +139,7 @@ namespace VUI
         string Position { get; set; }
         string VerticalAlign { get; set; }
         string HorizontalAlign { get; set; }
-
+        string Padding { get; set; }
 
         //
         // Media
