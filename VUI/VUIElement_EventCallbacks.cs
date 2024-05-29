@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VUI
 {
-    public partial class VUIElement : IUIElement
+    public partial class VUIElement : IVUIElement
     {
         [Parameter] public EventCallback<VUIElement> OnReadyToUse { get; set; }
         [Parameter] public EventCallback<VUIElement> OnClicked { get; set; }

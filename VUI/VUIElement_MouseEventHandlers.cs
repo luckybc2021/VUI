@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VUI
 {
-    public partial class VUIElement : IUIElement
+    public partial class VUIElement : IVUIElement
     {
         protected async Task InternalOnClicked()
         {

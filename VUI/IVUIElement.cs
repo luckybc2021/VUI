@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VUI
 {
-    public interface IUIElement
+    public interface IVUIElement
     {
         //
         // Define the properties that all UI elements should have

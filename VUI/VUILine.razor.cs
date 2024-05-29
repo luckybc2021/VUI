@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Components;
 
 namespace VUI
 {
-    public partial class VUILine
+    public partial class VUILine<TItem>
     {
         [Parameter]
         public RenderFragment? ChildContent { get; set; }
+
+        [Parameter, EditorRequired]
+        public IReadOnlyList<TItem> Items { get; set; } = default!;
 
         /// <summary>
         /// To create a line of UIElements:

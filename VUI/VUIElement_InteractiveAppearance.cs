@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VUI
 {
-    public partial class VUIElement : IUIElement
+    public partial class VUIElement : IVUIElement
     {
         private string mouseEnter_BackgroundColor = "unset";
         /// <summary>

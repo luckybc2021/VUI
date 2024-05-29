@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace VUI
 {
-    public partial class VUIElement : ComponentBase, IUIElement
+    public partial class VUIElement : ComponentBase, IVUIElement
     {
         //
         //

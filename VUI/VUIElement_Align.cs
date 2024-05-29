@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VUI
 {
-    public partial class VUIElement : ComponentBase, IUIElement
+    public partial class VUIElement : ComponentBase, IVUIElement
     {
         string _align = "";
         string align = "unset";

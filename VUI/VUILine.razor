@@ -1,4 +1,8 @@
-﻿@inherits VUIElement
+﻿@typeparam TItem
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+@inherits VUIElement
 
 <div class="div-line" @onclick="InternalOnClicked"
      @onmouseenter="InternalOnMouseEnter"
@@ -32,22 +36,28 @@
             padding:@Padding;
             
             user-select:none;">
-    
-     <div class="div-inlet">
-        @ChildContent
-     </div>
+
+    @foreach (var item in Items)
+    {
+        <VUIText FlexFlow="row" Display="block" Position="relative"
+                 Normal_Color=@Normal_Color
+                 MouseEnter_Color=@MouseEnter_Color
+                 MouseLeave_Color=@MouseLeave_Color
+                 MouseDown_Color=@MouseDown_Color
+                 MouseUp_Color=@MouseUp_Color
+                 Clicked_Color=@Clicked_Color
+                 FontFamily=@FontFamily
+                 FontSize=@FontSize
+                 FontWeight=@FontWeight>
+            @item
+        </VUIText>
+    }
 
 </div>
 
 
-<style>
-    /* .button-container {
-        display: inline-flex; // Use flexbox 
-        flex-flow: row;
-        width: max-content;
-    } */
-
-    .div-line div-inlet {
+<style>    
+    .div-inlet {
             /* Add any button-specific styles here */
             /* width:max-content; */
             display: inline-block;
