@@ -1,0 +1,68 @@
+﻿@typeparam TItem
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+@inherits VUIElement
+
+
+@*
+    The following properties are not available on VUIList, 
+    instead it will for list-items.
+       1. Color (Invailable),
+       2. Normal_Color,
+       3. MouseEnter_Color,
+       4. MouseLeave_Color,
+       5. MouseDown_Color,
+       6. Clicked_Color.
+*@
+
+<div class="div-list" @onclick="InternalOnClicked"
+     @onmouseenter="InternalOnMouseEnter"
+     @onmouseleave="InternalOnMouseLeave"
+     @onmouseup="InternalOnMouseUp"
+     @onmousedown="InternalOnMouseDown"
+     style="background-color:@BackgroundColor;
+            background-image:@BackgroundImage;
+
+            border:@Border;
+            display:@Display;
+            width:@Width;
+            height:@Height;
+            position:@Position;
+
+            vertical-align:@VerticalAlign;
+            cursor:@Cursor;
+            justify-content:@JustifyContent;
+            align-items:@AlignItems;
+            margin:@Margin;
+            z-index:@Z_Index;
+            top:@Top
+            left:@Left;
+            bottom:@Bottom;
+            right:@Right;
+            transform:@Transform;
+
+            flex-flow:@FlexFlow;
+            flex-direction:@FlexFlow;
+            overflow:@OverFlow;
+            padding:@Padding;
+
+            user-select:none;">
+
+    @foreach(var item in Items)
+    {
+        <VUIText FlexFlow="row" Display="block" Position="relative"
+                 Normal_Color=@Normal_Color
+                 MouseEnter_Color=@MouseEnter_Color
+                 MouseLeave_Color=@MouseLeave_Color
+                 MouseDown_Color=@MouseDown_Color
+                 MouseUp_Color=@MouseUp_Color
+                 Clicked_Color=@Clicked_Color
+                 FontFamily=@FontFamily
+                 FontSize=@FontSize
+                 FontWeight=@FontWeight>
+            @item
+        </VUIText>
+    }
+
+</div>
