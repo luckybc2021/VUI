@@ -11,16 +11,58 @@ namespace VUI
     {
         private string content = "";
 
-
         public string Content
         {
             get => content;
         }
 
+        
+        private string fontFamily = "arial";
+        [Parameter]
+        public string FontFamily 
+        { 
+            get => fontFamily; 
+            set
+            {
+                fontFamily = value;
+            }
+        }
+
+        private string fontSize = "initial";
+        [Parameter]
+        public string FontSize
+        {
+            get => fontSize;
+            set
+            {
+                fontSize = value;
+            }
+        }
+
+        private string fontWeight = "normal";
+        [Parameter]
+        public string FontWeight
+        {
+            get => fontWeight;
+            set
+            {
+                fontWeight = value;
+            }
+        }
+
+        [Parameter]
+        public RenderFragment? ChildContent { get; set; }
+
+
         protected override void OnInitialized()
         {
             ContentType = "Text";            
             base.OnInitialized();
+        }
+
+        protected override void OnParametersSet()
+        {
+            base.OnParametersSet();
         }
 
         protected override async void OnAfterRender(bool firstRender)
