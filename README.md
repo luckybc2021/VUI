@@ -1,10 +1,11 @@
 <a href="https://www.buymeacoffee.com/vosongtoan" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
 
-# Thanks = ![Static Badge](https://img.shields.io/badge/168_Clones-62_Unique_Cloners-blue) ![Static Badge](https://img.shields.io/badge/github.com-335_Views-crimson) ![Static Badge](https://img.shields.io/badge/Google.com-3_Views-green)
-
-
 # VUI - Vietnam User Interfaces
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Description
 
